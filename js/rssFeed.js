@@ -41,5 +41,5 @@ function loadEntries(url,id){
 
 
 window.onload = function(){
-  loadEntries('http://rss.cnn.com/rss/cnn_world.rss','cnn')
+  loadEntries('http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk','bbc')
 }
