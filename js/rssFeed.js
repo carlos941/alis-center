@@ -58,9 +58,5 @@ function loadEpisodes(url,id){
 }
 
 window.onload = function(){
-  loadEntries('http://feedblog.ameba.jp/rss/ameblo/sasaki-sd','sasaki')
-  loadEntries('http://daringfireball.net/feeds/articles','daringfireball')
-  loadEntries('http://rss.cnn.com/rss/cnn_world.rss','aljazeera')
-  loadEpisodes('http://feeds.feedburner.com/todayinthepast','jjho')
-  loadEpisodes('http://feeds.rebuild.fm/rebuildfm','rebuildfm')
+  loadEntries('http://rss.cnn.com/rss/cnn_world.rss','cnn')
 }
