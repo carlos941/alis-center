@@ -12,6 +12,8 @@ function formatDate(date){
   }
   return year + '/' + month + '/' + day + ' ' + hour + ':' +minutes
 }
+//Setting timer for this function
+var timer = setInterval(loadEntries, 1000)
 
 function loadEntries(url,id){
   var blogDiv = document.getElementById(id)
@@ -25,7 +27,11 @@ function loadEntries(url,id){
         added++
         var div = document.createElement('div')
         div.setAttribute('class','entry')
-        div.innerHTML = '<p class="title"><a href="'+entry.link+'" target="_blank">'+entry.title+'</a></p><p class="date">'+
+        div.innerHTML = '<p class="title"><a href="'+entry.link+'" target="_blank">'
+                         +entry.title
+                         +'</a></p><p class="summary">'
+                         +entry.description
+                         +'</p><p class="date">'+
         formatDate(new Date(entry.pubdate_ms))+'</p>'
         blogDiv.appendChild(div)
       }
@@ -33,29 +39,6 @@ function loadEntries(url,id){
   })
 }
 
-function loadEpisodes(url,id){
-  var podDiv = document.getElementById(id)
-  feednami.load(url,function(res){
-    podDiv.removeChild(podDiv.querySelector('.loading'))
-    var entries = res.feed.entries
-    for(var i = 0; i < entries.length && i < 3; i++){
-      var entry = entries[i]
-      var div = document.createElement('div')
-      div.setAttribute('class','entry')
-      div.innerHTML = 
-        '<p class="title"><a href="'
-          + entry.link
-          + '" target="_blank">'
-          + entry.title
-          + '</a></p><p class="date">'
-          + formatDate(new Date(entry.pubdate_ms))
-          + '</p><p class="audio-container"><audio preload="none" controls><source src="'
-          + entry.enclosures[0].url
-          + '"></audio></p>'
-      podDiv.appendChild(div)
-    }
-  })
-}
 
 window.onload = function(){
   loadEntries('http://rss.cnn.com/rss/cnn_world.rss','cnn')
