@@ -1,0 +1,30 @@
+.summary{
+color:white;
+}
+
+.title a{
+color:white;
+font-size:large;
+font: bold;
+}
+
+.feeds{
+padding-left: 71px;
+padding-right: 71px;
+}
+
+.newshead{
+color:#1458a6;
+padding-left:-10px;
+}
+
+.date{
+color:#999999;
+}
+
+.bodyStyle{
+background:black;
+overflow-x: hidden;
+overflow-y: hidden;
+}
+
